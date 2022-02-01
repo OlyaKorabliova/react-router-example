@@ -1,10 +1,12 @@
 import { BrowserRouter, Link } from "react-router-dom";
 import RegisteredRoutes from "./components/RegisteredRoutes";
+import MainNavActions from "./MainNavActions";
 
 function App() {
   return (
     <BrowserRouter>
       <nav>
+        <MainNavActions />
         <ul>
           <li>
             <Link to="/">Home</Link>
