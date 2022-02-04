@@ -1,28 +1,26 @@
-import { Switch, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import About from "./About";
 import Home from "./Home";
+import Topic from "./Topics/Topic";
 import Topics from "./Topics/Topics";
 
 function RegisteredRoutes() {
   const isAuthenticated = true;
 
   return (
-    <Switch>
-      <Route path="/about">
-        <About />
-      </Route>
+    <Routes>
+      <Route path="/about" element={<About />} />
       {isAuthenticated ? (
-        <Route path="/topics">
-          <Topics />
+        <Route path="/topics" element={<Topics />}>
+          <Route path=":topicId" element={<Topic />} />
+          <Route index element={<h3>Please select a topic.</h3>} />
         </Route>
       ) : (
-        <Route path="/topics" render={() => <h1>Please log in</h1>} />
+        <Route path="/topics" element={<h1>Please log in</h1>} />
       )}
-      <Route path="/" exact>
-        <Home />
-      </Route>
-      <Route render={() => <h1>404: This page is not found</h1>} />
-    </Switch>
+      <Route path="/" element={<Home />} />
+      <Route path="*" element={<h1>404: This page is not found</h1>} />
+    </Routes>
   );
 }
 

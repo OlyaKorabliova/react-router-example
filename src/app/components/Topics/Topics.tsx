@@ -1,21 +1,18 @@
-import { Link, useRouteMatch } from "react-router-dom";
-import TopicsRoutes from "./TopicsRoutes";
+import { Link, Outlet } from "react-router-dom";
 
 function Topics() {
-  const match = useRouteMatch();
-
   return (
     <div>
       <h2>Topics</h2>
       <ul>
         <li>
-          <Link to={`${match.url}/react-docs`}>React docs</Link>
+          <Link to={"react-docs"}>React docs</Link>
         </li>
         <li>
-          <Link to={`${match.url}/react-router-docs`}>React Router docs</Link>
+          <Link to={"react-router-docs"}>React Router docs</Link>
         </li>
       </ul>
-      <TopicsRoutes />
+      <Outlet />
     </div>
   );
 }

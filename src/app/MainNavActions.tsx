@@ -1,18 +1,18 @@
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function MainNavActions() {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const goHome = () => {
-    history.push("/home");
+    navigate("/home");
   };
 
   const goNext = () => {
-    history.goForward();
+    navigate(1);
   };
 
   const goBack = () => {
-    history.goBack();
+    navigate(-1);
   };
 
   return (
